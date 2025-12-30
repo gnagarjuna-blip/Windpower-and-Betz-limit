@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Complete Physics of Wind Power - G NAGARJUNA</title>
+    <title>Physics of Wind Power Masterclass - G NAGARJUNA</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -86,7 +86,14 @@
             color: #d62828;
         }
 
-        /* Quiz Styles */
+        .numerical-box {
+            background: #fff9db;
+            padding: 20px;
+            border-left: 5px solid #fab005;
+            margin: 15px 0;
+            border-radius: 8px;
+        }
+
         .quiz-section {
             margin-top: 30px;
             background: #e9f5ff;
@@ -139,7 +146,7 @@
 
 <div class="container">
     <header>
-        <h1>Complete Derivation: Wind Power and Betz Limit</h1>
+        <h1>Complete Physics of Wind Power</h1>
         <div class="prepared-by">Prepared by G NAGARJUNA</div>
     </header>
 
@@ -147,121 +154,139 @@
 
     <button class="accordion-btn">Step 1: Kinetic Energy of Wind</button>
     <div class="panel">
-        <p>The power available in the wind is derived from its Kinetic Energy (E). For any mass (m) moving at a velocity (v), the energy is:</p>
+        <p>The power in wind is derived from Kinetic Energy (E). For an air mass (m) moving at a velocity (v):</p>
         <div class="formula-box">E = 1/2 · m · v<sup>2</sup></div>
     </div>
 
     <button class="accordion-btn">Step 2: Mass Flow Rate</button>
     <div class="panel">
-        <p>Wind is a continuous stream of air. We define the mass (m) of air passing through a rotor area (A) in time (t) as:</p>
+        <p>We consider the mass of air passing through the rotor area (A) per unit of time (t):</p>
         
-        <p>Mass = Density · Volume = Density · (Area · Distance)</p>
-        <p>Since Distance = Velocity · Time:</p>
+        <p>Mass = Density (ρ) · Area (A) · Distance (v · t)</p>
         <div class="formula-box">m = ρ · A · v · t</div>
     </div>
 
     <button class="accordion-btn">Step 3: The Final Power Equation</button>
     <div class="panel">
-        <p>Power (P) is Energy (E) divided by Time (t). By substituting the mass equation into the energy equation:</p>
+        <p>Power (P) is Energy per unit time. Substituting <strong>m</strong> into the Energy equation:</p>
         <div class="formula-box">P = (1/2 · (ρ · A · v · t) · v<sup>2</sup>) / t</div>
-        <p>The time (t) cancels out, giving us the primary wind power formula:</p>
+        <p>The time (t) cancels, leaving the fundamental relationship:</p>
         <div class="formula-box">P = 1/2 · ρ · A · v<sup>3</sup></div>
     </div>
 
     <h3 style="color: #0077b6; padding-left: 10px; margin-top: 30px;">Part II: The Betz Limit Derivation</h3>
 
-    <button class="accordion-btn">Step 4: The Actuator Disk Model</button>
+    <button class="accordion-btn">Step 4: Velocities and Force</button>
     <div class="panel">
-        <p>To find the maximum power a turbine can extract, we look at the wind speed before (v<sub>1</sub>) and after (v<sub>2</sub>) the turbine. The speed at the rotor (v) is the average:</p>
+        <p>Using the Actuator Disk Model, let v<sub>1</sub> be upstream speed and v<sub>2</sub> be downstream speed. The speed at the rotor is the average:</p>
         <div class="formula-box">v = (v<sub>1</sub> + v<sub>2</sub>) / 2</div>
         
-    </div>
-
-    <button class="accordion-btn">Step 5: Force and Power Extraction</button>
-    <div class="panel">
-        <p>The Force (F) on the blades is the change in momentum over time:</p>
+        <p>The Force (F) exerted by the wind is the change in momentum:</p>
         <div class="formula-box">F = m · (v<sub>1</sub> − v<sub>2</sub>)</div>
-        <p>Since Power (P) = Force · Velocity:</p>
-        <div class="formula-box">P = [ρ · A · (v<sub>1</sub> + v<sub>2</sub>) / 2] · (v<sub>1</sub> − v<sub>2</sub>) · [(v<sub>1</sub> + v<sub>2</sub>) / 2]</div>
     </div>
 
-    <button class="accordion-btn">Step 6: Maximum Efficiency (16/27)</button>
+    <button class="accordion-btn">Step 5: Maximum Efficiency Calculation</button>
     <div class="panel">
-        <p>By differentiating the power equation, we find that maximum power is extracted when the downstream wind speed is 1/3 of the upstream speed (v<sub>2</sub> = 1/3 v<sub>1</sub>).</p>
-        <p>Plugging this back in gives the maximum theoretical Power Coefficient (C<sub>p</sub>):</p>
-        <div class="formula-box">C<sub>p</sub> = 16 / 27 ≈ 59.3%</div>
+        <p>Power extracted is Force times velocity. To find the maximum, we use calculus to differentiate Power with respect to the speed ratio.</p>
+        <p>Maximum power occurs when <strong>v<sub>2</sub> = 1/3 v<sub>1</sub></strong>.</p>
+        <div class="formula-box">C<sub>p, max</sub> = 16 / 27 ≈ 59.3%</div>
+    </div>
+
+    <h3 style="color: #0077b6; padding-left: 10px; margin-top: 30px;">Part III: Numerical Problem</h3>
+
+    <button class="accordion-btn">Example Problem and Solution</button>
+    <div class="panel">
+        <div class="numerical-box">
+            <strong>Problem:</strong> A wind turbine has a blade length of 50 meters. The wind speed is 12 m/s and the air density is 1.2 kg/m<sup>3</sup>. If the turbine operates at an efficiency (C<sub>p</sub>) of 40%, calculate the total power output in Megawatts (MW).
+        </div>
+        
+        <p><strong>Step 1: Calculate the Swept Area (A)</strong></p>
+        
+        <p>The area is a circle: A = π · r<sup>2</sup></p>
+        <p>A = 3.1415 · (50)<sup>2</sup> = 3.1415 · 2500 = 7,854 m<sup>2</sup></p>
+
+        <p><strong>Step 2: Calculate the Total Available Power in Wind</strong></p>
+        <p>P<sub>wind</sub> = 1/2 · ρ · A · v<sup>3</sup></p>
+        <p>P<sub>wind</sub> = 0.5 · 1.2 · 7,854 · (12)<sup>3</sup></p>
+        <p>P<sub>wind</sub> = 0.6 · 7,854 · 1,728 = 8,143,488 Watts</p>
+
+        <p><strong>Step 3: Calculate Actual Power Output</strong></p>
+        <p>P<sub>actual</sub> = P<sub>wind</sub> · C<sub>p</sub></p>
+        <p>P<sub>actual</sub> = 8,143,488 · 0.40 = 3,257,395 Watts</p>
+
+        <div class="formula-box">Final Answer: 3.26 MW</div>
     </div>
 
     <div class="quiz-section">
         <h2 style="text-align: center; color: #003049;">Interactive Student Quiz</h2>
 
         <div class="question-block">
-            <div class="question-text">1. In the formula P = 1/2 ρ A v<sup>3</sup>, what happens if the wind speed (v) doubles?</div>
-            <button class="option-btn" onclick="checkAnswer(this, true, 'q1', 'Correct! Because velocity is cubed (v multiplied by v multiplied by v), doubling the speed results in 2 to the power of 3, which is 8.')">Power increases 8 times</button>
-            <button class="option-btn" onclick="checkAnswer(this, false, 'q1', 'Incorrect. You might be thinking of a squared relationship. In wind power, the relationship is cubic, meaning 2 to the power of 3 equals 8.')">Power increases 4 times</button>
+            <div class="question-text">1. If wind speed triples (3v), how much does the power increase?</div>
+            <button class="option-btn" onclick="checkAnswer(this, true, 'q1', 'Correct! Power is proportional to velocity cubed (v to the power of 3). Since 3 multiplied by 3 multiplied by 3 is 27, the power increases 27 times.')">27 times</button>
+            <button class="option-btn" onclick="checkAnswer(this, false, 'q1', 'Incorrect. You likely multiplied by 3 or squared it. Since the formula uses v cubed, you must calculate 3 to the power of 3, which is 27.')">9 times</button>
             <div id="q1" class="feedback"></div>
         </div>
 
         <div class="question-block">
-            <div class="question-text">2. What does the symbol ρ represent in these equations?</div>
-            <button class="option-btn" onclick="checkAnswer(this, true, 'q2', 'Correct! The Greek symbol ρ (rho) represents air density. This is a measure of how much mass of air is packed into a cubic meter of space.')">Air Density</button>
-            <button class="option-btn" onclick="checkAnswer(this, false, 'q2', 'Incorrect. Area is represented by the capital letter A. The symbol ρ is specifically used for the density of the air flowing through the turbine.')">Rotor Area</button>
+            <div class="question-text">2. What is the value of the Betz Limit?</div>
+            <button class="option-btn" onclick="checkAnswer(this, true, 'q2', 'Correct! The Betz Limit is exactly 16/27. This represents the maximum 59.3 percent of kinetic energy that can be captured from the wind.')">16 / 27</button>
+            <button class="option-btn" onclick="checkAnswer(this, false, 'q2', 'Incorrect. While 50% sounds like a clean number, the mathematical maximum derived by Albert Betz is higher, specifically 16 divided by 27.')">1 / 2</button>
             <div id="q2" class="feedback"></div>
         </div>
 
         <div class="question-block">
-            <div class="question-text">3. Why is the Betz Limit (59.3%) not 100%?</div>
-            <button class="option-btn" onclick="checkAnswer(this, true, 'q3', 'Correct! If we extracted 100% of the energy, the air would stop completely behind the turbine. This would block any incoming wind from passing through.')">The air must keep moving to exit the turbine area.</button>
-            <button class="option-btn" onclick="checkAnswer(this, false, 'q3', 'Incorrect. While friction is a real-world loss, the 59.3% limit is a fundamental law of fluid physics that applies even to a perfect, frictionless turbine.')">Mechanical friction in the bearings.</button>
+            <div class="question-text">3. What does ρ represent in the wind power formula?</div>
+            <button class="option-btn" onclick="checkAnswer(this, true, 'q3', 'Correct! ρ (rho) stands for air density. It measures the mass of air per unit volume, typically around 1.225 kg per cubic meter at sea level.')">Air Density</button>
+            <button class="option-btn" onclick="checkAnswer(this, false, 'q3', 'Incorrect. Area is denoted by A and Velocity by v. The Greek symbol ρ is universally used in physics to represent the density of a substance.')">Wind Velocity</button>
             <div id="q3" class="feedback"></div>
         </div>
 
         <div class="question-block">
-            <div class="question-text">4. What is the mathematical value of the Betz Limit?</div>
-            <button class="option-btn" onclick="checkAnswer(this, true, 'q4', 'Correct! The fraction 16/27 is derived using calculus to find the peak of the power curve. It equals approximately 0.593 or 59.3 percent.')">16 / 27</button>
-            <button class="option-btn" onclick="checkAnswer(this, false, 'q4', 'Incorrect. While many real turbines operate near 40% efficiency, the absolute theoretical limit discovered by Albert Betz is much higher at 16/27.')">8 / 27</button>
+            <div class="question-text">4. What is the formula for Swept Area (A)?</div>
+            <button class="option-btn" onclick="checkAnswer(this, true, 'q4', 'Correct! The blades sweep out a circle as they rotate. The area of that circle is pi multiplied by the radius (blade length) squared.')">π · r<sup>2</sup></button>
+            <button class="option-btn" onclick="checkAnswer(this, false, 'q4', 'Incorrect. This formula is for the circumference (distance around the circle). For power, we need the total surface area through which the wind passes.')">2 · π · r</button>
             <div id="q4" class="feedback"></div>
         </div>
 
         <div class="question-block">
-            <div class="question-text">5. How is the wind speed at the rotor (v) related to v1 and v2?</div>
-            <button class="option-btn" onclick="checkAnswer(this, true, 'q5', 'Correct! According to the actuator disk theory, the wind speed at the moment it hits the rotor is the arithmetic average of the upstream and downstream speeds.')">It is the average: (v1 + v2) / 2</button>
-            <button class="option-btn" onclick="checkAnswer(this, false, 'q5', 'Incorrect. The wind begins to slow down before it reaches the blades and continues slowing after. Therefore, the speed at the rotor is the midpoint average.')">It is always equal to v1</button>
+            <div class="question-text">5. At max efficiency, how much is the wind slowed down (v2)?</div>
+            <button class="option-btn" onclick="checkAnswer(this, true, 'q5', 'Correct! To reach the Betz Limit, the wind must be slowed down to exactly one-third of its original speed. This balance prevents the air from piling up.')">v2 = 1/3 v1</button>
+            <button class="option-btn" onclick="checkAnswer(this, false, 'q5', 'Incorrect. If the wind stopped completely (v2=0), no more wind could enter. The ideal exit speed is exactly one-third of the entry speed.')">v2 = 0</button>
             <div id="q5" class="feedback"></div>
         </div>
 
         <div class="question-block">
-            <div class="question-text">6. If the blade length (radius) is doubled, how does the swept area (A) change?</div>
-            <button class="option-btn" onclick="checkAnswer(this, true, 'q6', 'Correct! The area of the circle swept by the blades is π multiplied by radius squared. Doubling the radius (2 multiplied by 2) results in 4 times the area.')">It increases 4 times</button>
-            <button class="option-btn" onclick="checkAnswer(this, false, 'q6', 'Incorrect. The area is not linear; it follows the square of the radius. Therefore, doubling the length of the blades actually quadruples the area.')">It increases 2 times</button>
+            <div class="question-text">6. Why does higher air density result in more power?</div>
+            <button class="option-btn" onclick="checkAnswer(this, true, 'q6', 'Correct! Density represents the mass of the air. Since kinetic energy depends on mass, denser air (like cold air or air at sea level) carries more energy.')">More mass is hitting the blades per second.</button>
+            <button class="option-btn" onclick="checkAnswer(this, false, 'q6', 'Incorrect. Density does not change the speed of the wind; it changes the weight or mass of the wind that is moving at that speed.')">Denser air moves faster.</button>
             <div id="q6" class="feedback"></div>
         </div>
 
         <div class="question-block">
-            <div class="question-text">7. At maximum efficiency, what is the speed of the wind leaving the turbine (v2)?</div>
-            <button class="option-btn" onclick="checkAnswer(this, true, 'q7', 'Correct! Betz proved that the most power is extracted when the wind is slowed down to exactly one-third of its original speed as it leaves the rotor.')">v2 = 1/3 v1</button>
-            <button class="option-btn" onclick="checkAnswer(this, false, 'q7', 'Incorrect. If v2 were zero, the turbine would act as a wall. The mathematical maximum is reached when the exit speed is exactly one-third of the entry speed.')">v2 = 0</button>
+            <div class="question-text">7. What is C<sub>p</sub>?</div>
+            <button class="option-btn" onclick="checkAnswer(this, true, 'q7', 'Correct! C sub p is the Power Coefficient. It is the ratio that compares the power captured by the turbine to the total power available in the wind.')">Power Coefficient</button>
+            <button class="option-btn" onclick="checkAnswer(this, false, 'q7', 'Incorrect. While pressure is involved in the physics of lift, the specific coefficient used to measure turbine efficiency is the Power Coefficient.')">Pressure Constant</button>
             <div id="q7" class="feedback"></div>
         </div>
 
         <div class="question-block">
-            <div class="question-text">8. What does C<sub>p</sub> stand for?</div>
-            <button class="option-btn" onclick="checkAnswer(this, true, 'q8', 'Correct! C sub p is the Power Coefficient. It represents the ratio of the power extracted by the turbine to the total power available in the wind.')">Power Coefficient</button>
-            <button class="option-btn" onclick="checkAnswer(this, false, 'q8', 'Incorrect. Pressure is part of the physics of lift, but C sub p is the standard term used to define the overall efficiency of a wind turbine.')">Constant Pressure</button>
+            <div class="question-text">8. If the blade length is doubled, how does the Area change?</div>
+            <button class="option-btn" onclick="checkAnswer(this, true, 'q8', 'Correct! Since area uses radius squared (r multiplied by r), doubling the radius results in 2 squared, which is 4 times the area.')">Increases 4 times</button>
+            <button class="option-btn" onclick="checkAnswer(this, false, 'q8', 'Incorrect. The relationship between radius and area is not linear. Because the radius is squared in the area formula, the increase is 4-fold.')">Increases 2 times</button>
             <div id="q8" class="feedback"></div>
         </div>
 
         <div class="question-block">
-            <div class="question-text">9. Which factor significantly affects the air density (ρ)?</div>
-            <button class="option-btn" onclick="checkAnswer(this, true, 'q9', 'Correct! Air is thinner (less dense) at higher altitudes and warmer temperatures. This is why turbines at sea level generally produce more power than those on high mountains.')">Altitude and Temperature</button>
-            <button class="option-btn" onclick="checkAnswer(this, false, 'q9', 'Incorrect. The color of the turbine blades does not affect the air. Density is a physical property determined by atmospheric pressure and heat.')">The color of the turbine</button>
+            <div class="question-text">9. Which unit is typically used for large-scale wind turbine power?</div>
+            <button class="option-btn" onclick="checkAnswer(this, true, 'q9', 'Correct! Modern utility-scale wind turbines produce millions of watts. Therefore, they are usually rated in Megawatts (MW).')">Megawatts (MW)</button>
+            <button class="option-btn" onclick="checkAnswer(this, false, 'q9', 'Incorrect. While watts are the base unit, they are too small for commercial turbines. One Megawatt is equal to one million Watts.')">Millowatts (mW)</button>
             <div id="q9" class="feedback"></div>
         </div>
 
         <div class="question-block">
-            <div class="question-text">10. Can a real-world turbine ever reach 59.3% efficiency?</div>
-            <button class="option-btn" onclick="checkAnswer(this, true, 'q10', 'Correct! No real turbine reaches this limit because of losses like blade drag, wake turbulence, and electrical resistance in the generator.')">No, it is a theoretical maximum.</button>
-            <button class="option-btn" onclick="checkAnswer(this, false, 'q10', 'Incorrect. 59.3% is the upper limit for a perfect turbine. Real-world turbines usually peak between 35% and 45% due to aerodynamic losses.')">Yes, modern turbines do.</button>
+            <div class="question-text">10. Can a real turbine exceed the Betz Limit?</div>
+            <button class="option-btn" onclick="checkAnswer(this, true, 'q10', 'Correct! The Betz Limit is a fundamental law of physics. No turbine, no matter how advanced, can capture more than 59.3 percent of the wind energy.')">No, it is a physical law.</button>
+            <button class="option-btn" onclick="checkAnswer(this, false, 'q10', 'Incorrect. The limit is based on the conservation of mass and momentum. To exceed it, the air would have to disappear or move through itself.')">Yes, with better magnets.</button>
             <div id="q10" class="feedback"></div>
         </div>
 
