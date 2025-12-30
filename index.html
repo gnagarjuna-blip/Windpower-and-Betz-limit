@@ -176,20 +176,26 @@
 
     <h3 style="color: #0077b6; padding-left: 10px; margin-top: 30px;">Part II: The Betz Limit Derivation</h3>
 
-    <button class="accordion-btn">Step 4: Velocities and Force</button>
+    <button class="accordion-btn">Step 4: The Actuator Disk Model</button>
     <div class="panel">
-        <p>Using the Actuator Disk Model, let v<sub>1</sub> be upstream speed and v<sub>2</sub> be downstream speed. The speed at the rotor is the average:</p>
+        <p>To find the maximum power a turbine can extract, we look at the wind speed before (v<sub>1</sub>) and after (v<sub>2</sub>) the turbine. The speed at the rotor (v) is the average:</p>
         <div class="formula-box">v = (v<sub>1</sub> + v<sub>2</sub>) / 2</div>
         
-        <p>The Force (F) exerted by the wind is the change in momentum:</p>
-        <div class="formula-box">F = m · (v<sub>1</sub> − v<sub>2</sub>)</div>
     </div>
 
-    <button class="accordion-btn">Step 5: Maximum Efficiency Calculation</button>
+    <button class="accordion-btn">Step 5: Force and Power Extraction</button>
     <div class="panel">
-        <p>Power extracted is Force times velocity. To find the maximum, we use calculus to differentiate Power with respect to the speed ratio.</p>
-        <p>Maximum power occurs when <strong>v<sub>2</sub> = 1/3 v<sub>1</sub></strong>.</p>
-        <div class="formula-box">C<sub>p, max</sub> = 16 / 27 ≈ 59.3%</div>
+        <p>The Force (F) on the blades is the change in momentum over time:</p>
+        <div class="formula-box">F = m · (v<sub>1</sub> − v<sub>2</sub>)</div>
+        <p>Since Power (P) = Force · Velocity:</p>
+        <div class="formula-box">P = [ρ · A · (v<sub>1</sub> + v<sub>2</sub>) / 2] · (v<sub>1</sub> − v<sub>2</sub>) · [(v<sub>1</sub> + v<sub>2</sub>) / 2]</div>
+    </div>
+
+    <button class="accordion-btn">Step 6: Maximum Efficiency (16/27)</button>
+    <div class="panel">
+        <p>By differentiating the power equation, we find that maximum power is extracted when the downstream wind speed is 1/3 of the upstream speed (v<sub>2</sub> = 1/3 v<sub>1</sub>).</p>
+        <p>Plugging this back in gives the maximum theoretical Power Coefficient (C<sub>p</sub>):</p>
+        <div class="formula-box">C<sub>p</sub> = 16 / 27 ≈ 59.3%</div>
     </div>
 
     <h3 style="color: #0077b6; padding-left: 10px; margin-top: 30px;">Part III: Numerical Problem</h3>
