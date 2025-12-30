@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Derivation of Wind Power - G NAGARJUNA</title>
+    <title>Physics of Wind Power - G NAGARJUNA</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -11,10 +11,11 @@
             padding: 0;
             background-color: #f0f4f8;
             color: #333;
+            line-height: 1.6;
         }
         .container {
             width: 95%;
-            max-width: 800px;
+            max-width: 850px;
             margin: 20px auto;
             padding: 20px;
             background-color: #fff;
@@ -78,80 +79,123 @@
             padding: 15px;
             border-radius: 6px;
             text-align: center;
-            font-size: 1.2em;
+            font-size: 1.3em;
             font-weight: bold;
-            margin: 10px 0;
+            margin: 15px 0;
             border: 1px dashed #0077b6;
+            color: #005f8d;
         }
 
-        .step-title {
-            color: #0077b6;
-            font-weight: bold;
-            margin-top: 15px;
+        /* Quiz Styles */
+        .quiz-container {
+            margin-top: 20px;
+            padding: 15px;
+            background: #e9f5ff;
+            border-radius: 10px;
         }
+        .question {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .option-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            background: white;
+            border: 1px solid #0077b6;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: left;
+            transition: 0.3s;
+        }
+        .option-btn:hover {
+            background: #d1ecff;
+        }
+        .feedback {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            display: none;
+            font-size: 0.95em;
+        }
+        .correct { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .wrong { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
     </style>
 </head>
 <body>
 
 <div class="container">
     <header>
-        <h1>Mathematical Derivation of Wind Power</h1>
+        <h1>Physics of Wind Power Derivation</h1>
         <div class="prepared-by">Prepared by G NAGARJUNA</div>
-        <p>A step-by-step guide for students to understand the Power Equation.</p>
     </header>
 
-    <button class="accordion-btn">Step 1: The Kinetic Energy Basis</button>
+    <button class="accordion-btn">Step 1: Kinetic Energy Calculation</button>
     <div class="panel">
-        <p>The power in wind comes from the kinetic energy of moving air molecules.</p>
-        <p>The standard formula for Kinetic Energy (E) of any moving mass (m) at a specific velocity (v) is:</p>
-        <div class="formula">E = 1/2 * m * v^2</div>
-        <p>Where:</p>
+        <p>Wind power is derived from the motion of air mass. The Kinetic Energy (E) of any object with mass (m) moving at velocity (v) is:</p>
+        <div class="formula">E = 1/2 * m * v²</div>
+    </div>
+
+    <button class="accordion-btn">Step 2: Mass of Moving Air</button>
+    <div class="panel">
+        <p>To find the mass (m) of air passing through the turbine area (A) in a given time (t):</p>
         <ul>
-            <li><strong>m:</strong> mass of the air.</li>
-            <li><strong>v:</strong> velocity (speed) of the wind.</li>
+            <li><strong>Volume (V)</strong> = Area * Distance = A * (v * t)</li>
+            <li><strong>Mass (m)</strong> = Density * Volume</li>
         </ul>
+        <div class="formula">m = ρ * A * v * t</div>
+        <p>Where <strong>ρ (rho)</strong> is the air density.</p>
     </div>
 
-    <button class="accordion-btn">Step 2: Defining Mass Flow Rate</button>
+    <button class="accordion-btn">Step 3: The Power Equation</button>
     <div class="panel">
-        <p>Since wind is a continuous flow, we need to calculate how much mass passes through the turbine blades over a period of time (t).</p>
-        <p><strong>Volume (V)</strong> = Area * Distance = A * (v * t)</p>
-        <p><strong>Mass (m)</strong> = Density * Volume = rho * A * v * t</p>
-        <div class="formula">m = rho * A * v * t</div>
-        <p>Where:</p>
-        <ul>
-            <li><strong>rho (ρ):</strong> Air density (approx 1.225 kg/m³).</li>
-            <li><strong>A:</strong> Swept area of the blades.</li>
-            <li><strong>v:</strong> Wind speed.</li>
-        </ul>
+        <p>Power (P) is Energy per unit time (E/t). Substituting the mass into the energy equation:</p>
+        <div class="formula">P = (1/2 * (ρ * A * v * t) * v²) / t</div>
+        <p>The time (t) cancels out, giving us the Total Wind Power:</p>
+        <div class="formula">P = 1/2 * ρ * A * v³</div>
+        <p><strong>Note:</strong> Because velocity is cubed (v³), doubling the wind speed increases power by 8 times!</p>
     </div>
 
-    <button class="accordion-btn">Step 3: Calculating Power</button>
+    <button class="accordion-btn">Step 4: The Betz Limit Derivation</button>
     <div class="panel">
-        <p>Power is defined as Energy divided by Time. We substitute our Mass formula from Step 2 into the Kinetic Energy formula from Step 1.</p>
-        <p><strong>Power (P)</strong> = (1/2 * m * v^2) / t</p>
-        <p>Substitute m: <strong>P</strong> = (1/2 * (rho * A * v * t) * v^2) / t</p>
-        <p>The time (t) cancels out, leaving the final equation:</p>
-        <div class="formula">P = 1/2 * rho * A * v^3</div>
-        <p><strong>Important Note:</strong> Power is proportional to the <strong>cube of the velocity</strong>. Doubling the wind speed results in 8 times more power!</p>
-    </div>
-
-    <button class="accordion-btn">Step 4: The Betz Limit (Maximum Efficiency)</button>
-    <div class="panel">
+        <p>A turbine cannot extract 100% of the wind's power because the air must continue moving to leave the area. Using the Actuator Disk Model:</p>
         
-        <p>A turbine cannot capture all of the wind's energy. If it did, the air would stop completely behind the turbine, and no more air could flow through.</p>
-        <p>The <strong>Betz Limit</strong> states that the maximum theoretical efficiency a turbine can achieve is <strong>16/27</strong>.</p>
-        <div class="formula">Efficiency = 59.3%</div>
-        <p>In practice, modern turbines operate at about 35% to 45% efficiency due to mechanical friction and air turbulence.</p>
+        <ol>
+            <li>Let <strong>v_upstream</strong> be initial speed and <strong>v_downstream</strong> be exit speed.</li>
+            <li>Power Extracted = Difference in Kinetic Energy.</li>
+            <li>Maximum power occurs when <strong>v_downstream = 1/3 * v_upstream</strong>.</li>
+        </ol>
+        <p>This results in the <strong>Betz Limit</strong> coefficient (Cp):</p>
+        <div class="formula">Cp = 16/27 ≈ 59.3%</div>
+        <p>No turbine can capture more than 59.3% of the kinetic energy in wind.</p>
+    </div>
+
+    <button class="accordion-btn">Step 5: Interactive Quiz</button>
+    <div class="panel">
+        <div class="quiz-container">
+            <div class="question">1. If the wind speed doubles (2v), how much does the power increase?</div>
+            <button class="option-btn" onclick="checkAnswer(this, false, 'q1', 'Incorrect. Remember the formula uses v cubed (v³). 2 to the power of 3 is 8.')">2 times</button>
+            <button class="option-btn" onclick="checkAnswer(this, false, 'q1', 'Incorrect. That would be v squared, but wind power uses v cubed.')">4 times</button>
+            <button class="option-btn" onclick="checkAnswer(this, true, 'q1', 'Correct! Since Power is proportional to v³, 2³ = 8.')">8 times</button>
+            <div id="q1" class="feedback"></div>
+
+            <hr>
+
+            <div class="question">2. What is the maximum theoretical efficiency (Betz Limit)?</div>
+            <button class="option-btn" onclick="checkAnswer(this, false, 'q2', 'Incorrect. This is much higher than what physics allows for wind.')">100%</button>
+            <button class="option-btn" onclick="checkAnswer(this, true, 'q2', 'Correct! The Betz Limit is 16/27, which is approximately 59.3%.')">59.3%</button>
+            <button class="option-btn" onclick="checkAnswer(this, false, 'q2', 'Incorrect. While real turbines often operate at 40%, the theoretical limit is higher.')">40%</button>
+            <div id="q2" class="feedback"></div>
+        </div>
     </div>
 
 </div>
 
 <script>
+    // Accordion Logic
     var acc = document.getElementsByClassName("accordion-btn");
-    var i;
-
-    for (i = 0; i < acc.length; i++) {
+    for (var i = 0; i < acc.length; i++) {
         acc[i].addEventListener("click", function() {
             this.classList.toggle("active");
             var panel = this.nextElementSibling;
@@ -161,6 +205,24 @@
                 panel.style.maxHeight = panel.scrollHeight + "px";
             } 
         });
+    }
+
+    // Quiz Logic
+    function checkAnswer(btn, isCorrect, feedbackId, explanation) {
+        var feedbackDiv = document.getElementById(feedbackId);
+        feedbackDiv.style.display = "block";
+        
+        if (isCorrect) {
+            feedbackDiv.className = "feedback correct";
+            feedbackDiv.innerHTML = "<strong>Correct!</strong> " + explanation;
+        } else {
+            feedbackDiv.className = "feedback wrong";
+            feedbackDiv.innerHTML = "<strong>Wrong.</strong> " + explanation;
+        }
+
+        // Adjust panel height to fit feedback
+        var panel = btn.parentElement.parentElement;
+        panel.style.maxHeight = panel.scrollHeight + "px";
     }
 </script>
 
