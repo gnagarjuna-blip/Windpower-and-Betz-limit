@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Derivation of Wind Power - G NAGARJUNA</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f8;
+            color: #333;
+        }
+        .container {
+            width: 95%;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border-radius: 12px;
+        }
+        header {
+            text-align: center;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #0077b6;
+            margin-bottom: 25px;
+        }
+        header h1 { color: #0077b6; margin: 0; font-size: 1.8em; }
+        .prepared-by {
+            font-weight: bold;
+            color: #ef476f;
+            margin-top: 5px;
+            font-size: 1.1em;
+        }
+        
+        .accordion-btn {
+            background-color: #0077b6;
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 1.1em;
+            font-weight: bold;
+            transition: 0.4s;
+            border-radius: 8px;
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .active, .accordion-btn:hover {
+            background-color: #005f8d;
+        }
+        .accordion-btn:after {
+            content: '\002B'; 
+            font-size: 1.3em;
+        }
+        .active:after {
+            content: "\2212"; 
+        }
+        .panel {
+            padding: 0 18px;
+            background-color: white;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            border-left: 2px solid #0077b6;
+            margin-bottom: 10px;
+        }
+
+        .formula {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 6px;
+            text-align: center;
+            font-size: 1.2em;
+            font-weight: bold;
+            margin: 10px 0;
+            border: 1px dashed #0077b6;
+        }
+
+        .step-title {
+            color: #0077b6;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Mathematical Derivation of Wind Power</h1>
+        <div class="prepared-by">Prepared by G NAGARJUNA</div>
+        <p>A step-by-step guide for students to understand the Power Equation.</p>
+    </header>
+
+    <button class="accordion-btn">Step 1: The Kinetic Energy Basis</button>
+    <div class="panel">
+        <p>The power in wind comes from the kinetic energy of moving air molecules.</p>
+        <p>The standard formula for Kinetic Energy (E) of any moving mass (m) at a specific velocity (v) is:</p>
+        <div class="formula">E = 1/2 * m * v^2</div>
+        <p>Where:</p>
+        <ul>
+            <li><strong>m:</strong> mass of the air.</li>
+            <li><strong>v:</strong> velocity (speed) of the wind.</li>
+        </ul>
+    </div>
+
+    <button class="accordion-btn">Step 2: Defining Mass Flow Rate</button>
+    <div class="panel">
+        <p>Since wind is a continuous flow, we need to calculate how much mass passes through the turbine blades over a period of time (t).</p>
+        <p><strong>Volume (V)</strong> = Area * Distance = A * (v * t)</p>
+        <p><strong>Mass (m)</strong> = Density * Volume = rho * A * v * t</p>
+        <div class="formula">m = rho * A * v * t</div>
+        <p>Where:</p>
+        <ul>
+            <li><strong>rho (ρ):</strong> Air density (approx 1.225 kg/m³).</li>
+            <li><strong>A:</strong> Swept area of the blades.</li>
+            <li><strong>v:</strong> Wind speed.</li>
+        </ul>
+    </div>
+
+    <button class="accordion-btn">Step 3: Calculating Power</button>
+    <div class="panel">
+        <p>Power is defined as Energy divided by Time. We substitute our Mass formula from Step 2 into the Kinetic Energy formula from Step 1.</p>
+        <p><strong>Power (P)</strong> = (1/2 * m * v^2) / t</p>
+        <p>Substitute m: <strong>P</strong> = (1/2 * (rho * A * v * t) * v^2) / t</p>
+        <p>The time (t) cancels out, leaving the final equation:</p>
+        <div class="formula">P = 1/2 * rho * A * v^3</div>
+        <p><strong>Important Note:</strong> Power is proportional to the <strong>cube of the velocity</strong>. Doubling the wind speed results in 8 times more power!</p>
+    </div>
+
+    <button class="accordion-btn">Step 4: The Betz Limit (Maximum Efficiency)</button>
+    <div class="panel">
+        
+        <p>A turbine cannot capture all of the wind's energy. If it did, the air would stop completely behind the turbine, and no more air could flow through.</p>
+        <p>The <strong>Betz Limit</strong> states that the maximum theoretical efficiency a turbine can achieve is <strong>16/27</strong>.</p>
+        <div class="formula">Efficiency = 59.3%</div>
+        <p>In practice, modern turbines operate at about 35% to 45% efficiency due to mechanical friction and air turbulence.</p>
+    </div>
+
+</div>
+
+<script>
+    var acc = document.getElementsByClassName("accordion-btn");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.maxHeight) {
+                panel.style.maxHeight = null;
+            } else {
+                panel.style.maxHeight = panel.scrollHeight + "px";
+            } 
+        });
+    }
+</script>
+
+</body>
+</html>
